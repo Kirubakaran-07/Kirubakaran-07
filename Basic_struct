@@ -1,0 +1,45 @@
+#include<stdio.h>
+#include<string.h>
+#define SIZE 2
+struct org
+{
+    char name[20];
+    int pin;
+    struct student
+    {
+        char sname[20];
+        int reg;
+    }stu;
+};
+
+int main(void)
+{
+    
+    
+    struct org o[SIZE], *ptr = &o;
+    init(ptr);
+    display(o);
+    return 0;
+}
+int init(struct org *ptr)
+{
+    for (int i=0;i<SIZE;i++)
+    {
+        printf("\nEnter org name");
+        scanf("%s",(*(ptr+i)).name);
+        printf("Enter org pin");
+        scanf("\n%d",&(*(ptr+i)).pin);
+        printf("\nEnter student name");
+        scanf("%s",(*(ptr+i)).stu.sname);
+        printf("Enter student reg");
+        scanf("\n%d",&(*(ptr+i)).stu.reg);
+    }
+    
+}
+int display( struct org o[SIZE])
+{
+      for (int i=0;i<SIZE;i++){
+    printf("Org name:%s\nOrg Pin: %d\n Student Name: %s\n Student Reg.No%d",o[i].name,o[i].pin,o[i].stu.sname,o[i].stu.reg);
+      }
+    return 0;
+}
